@@ -1,0 +1,1002 @@
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/box-sizing";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3/background-size";	
+@import "compass/css3/border-radius";	
+@import "compass/typography/lists/bullets";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400|Lora:400,400italic,700italic|Oswald|Merriweather:300,400,900);
+
+@mixin adapt-to($human-factor) {
+	@if $human-factor == palm {
+		@media screen and (max-width: 480px) { @content; }
+	}
+	@if $human-factor == hands {
+		@media screen and (max-width: 768px) { @content; }
+	}
+	@if $human-factor == lap {
+		@media screen and (min-width: 481px) and (max-width: 1023px) { @content; }
+	}
+	@if $human-factor == portable {
+		@media screen and (max-width: 1023px) { @content; }
+	}
+	@if $human-factor == desk {
+		@media screen and (min-width: 1024px) { @content; }
+	}
+}
+
+/* Typography */
+
+.slabtexted .slabtext {
+	display: -moz-inline-box;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.slabtextinactive .slabtext {
+	display: inline;
+	white-space: normal;
+	font-size: 1em !important;
+	letter-spacing: inherit !important;
+	word-spacing: inherit !important;
+	*letter-spacing: 0 !important;
+	*word-spacing: 0 !important;
+}
+.slabtextdone .slabtext {
+	display: block;
+	line-height: 1.15;
+}
+
+html {
+  font-size: 62.5%; 
+}
+
+@mixin font-size($sizeValue: 16) {
+  font-size: ($sizeValue) + px;
+  font-size: $sizeValue /10 + rem;
+}
+
+body >  header {
+	text-transform: uppercase;
+
+	h1 {
+ 		font-weight: 100;
+		font-family: Lato;
+		@include font-size(280);
+		line-height: 0.8;
+		letter-spacing: -0.05em;
+		color: rgb(255, 255, 255);
+		margin: 0;
+		&::first-line {
+			letter-spacing: 0.03571em;
+		}
+		@include adapt-to(portable) {
+			@include font-size(220);
+		}
+		@include adapt-to(palm) {
+			@include font-size(160);
+		}
+	}
+	p {
+		font-weight: 400;
+		font-style: italic;
+		font-family: Lora;
+		@include font-size(12);
+		color: rgb(176, 174, 184);
+		letter-spacing: .2em;
+	}
+}
+
+.box-model {
+	text-align: center;
+
+	h1 {
+		font-weight: 700;
+		font-style: italic;
+		font-family: Lora;
+		@include font-size(36);
+		color: rgb(95, 93, 102);
+	}
+
+	p {
+		font-family: Lato;
+		@include font-size(19);
+		line-height: 1.4;
+		color: rgb(110, 108, 119);
+	}
+}
+
+.position {
+
+	header {
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(75);
+		line-height: 1;
+		color: rgb(253, 205, 132);
+		margin: .1em 0 0 0;
+		@include adapt-to(palm) {
+			@include font-size(50);
+      margin-bottom: 50px;
+		}
+
+  }
+
+	small {
+		font-family: Merriweather;
+		@include font-size(13);
+		color: rgb(203, 184, 160);
+		letter-spacing: .3em;
+	}
+
+	p {
+		font-weight: 300;
+		font-family: Merriweather;
+		@include font-size(25);
+	}
+}
+.floats {
+	h1 {
+		font-family: Oswald;
+		@include font-size(21);
+		color: rgb(36, 121, 90);
+		margin: 0;
+	}
+	p {
+		font-family: Lato;
+		@include font-size(14);
+		line-height: 1.475;
+		color: rgb(70, 70, 70);
+		margin: 0 0 1em;
+	}
+}
+.bullets {
+	header {
+		text-align: center;
+		text-transform: uppercase;
+	}
+	h1 {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(15);
+		color: rgb(169, 125, 53);
+		display: inline;
+		margin-right: 10px;
+	}
+	p {
+		font-weight: 400;
+		font-family: Lato;
+		@include font-size(15);
+		color: rgb(224, 193, 103);
+		display: inline;
+		vertical-align: top;
+	}
+	dl {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(26);
+		color: rgb(224, 224, 224);
+		//  fit text
+	}
+	.brand {
+		text-transform: uppercase;
+	}
+}
+.display {
+	background-color: rgb(113, 98, 90);
+	color: rgb(255, 255, 255);
+	header {
+		background-color: rgb(82, 71, 65);
+		padding: 1.5em;
+	}
+	h1 {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(49);
+		text-transform: uppercase;
+		text-align: center;
+		margin: 0;
+	}
+	p {
+		font-weight: 300;
+		font-family: Merriweather;
+		@include font-size(26);
+	}
+	cite {
+		font-style: normal;
+	}
+	a {
+		font-weight: 300;
+		font-family: Merriweather;
+		@include font-size(18);
+		color: rgb(184, 177, 173);
+		text-decoration: none;
+		&:hover {
+			color: rgb(255, 255, 255);
+		}
+	}
+}
+.borders {
+	h1 {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(82);
+		text-transform: uppercase;
+		padding-bottom: 15px;
+		border-bottom: 20px solid rgb(0, 0, 0);
+	}
+	p {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(39);
+		padding-bottom: 20px;
+		border-bottom: 3px solid rgb(0, 0, 0);
+	}
+	dl {
+		font-weight: 300;
+		font-family: Merriweather;
+		@include font-size(22);
+		line-height: 1.375;
+		letter-spacing: -0.5;
+	}
+	dt, dd {
+		display: inline;
+	}
+	dt {
+		font-weight: bold;
+		&:before {
+			content: "•";
+			padding: 0 10px 0 5px;
+		}
+		&:first-child:before {
+			content: "";
+			padding: 0;
+		}
+	}
+	dd {
+		margin-left: .5em;
+	}
+}
+.transforms {
+	header {
+		text-transform: uppercase;
+		color: rgb(255, 255, 255);
+		h1 {
+			font-weight: 400;
+			font-family: Oswald;
+			@include font-size(31);
+		}
+		p {
+			font-weight: 400;
+			font-family: Oswald;
+			@include font-size(21);
+		}
+	}
+	blockquote > p {
+		font-style: italic;
+		font-family: Lora;
+		@include font-size(16);
+		line-height: 1.5;
+		color: rgb(255, 255, 255);
+	}
+	footer > p {
+		font-weight: 400;
+		font-family: Oswald;
+		@include font-size(48);
+		color: rgb(255, 255, 255);
+		text-transform: uppercase;
+	}
+	cite {
+		font-style: normal;
+		color: rgb(117, 168, 208);
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+	aside {
+		font-weight: 400;
+		font-family: Oswald;
+		color: rgb(255, 255, 255);
+		text-transform: uppercase;
+		text-align: center;
+		
+		h2 {
+			font-weight: 400;
+			@include font-size(14);
+			color: rgb(117, 168, 208);
+			background-color: rgb(117, 168, 208);
+			line-height: 1;
+		}
+		li:nth-child(2) {
+			color: rgb(117, 168, 208);
+		}
+	}
+}
+.overflow {
+	header {
+		font-family: Oswald;
+		text-transform: uppercase;
+		color: rgb(160, 180, 192);
+		h1 {
+			font-weight: 400;
+			font-family: Oswald;
+			@include font-size(82);
+     	@include adapt-to(palm) {
+	  		@include font-size(65);
+		  }
+		}
+	}
+	p {
+		font-style: italic;
+		font-family: Lora;
+		@include font-size(16);
+		line-height: 1.6;
+		letter-spacing: -0.22;
+		color: rgb(94, 108, 116);
+	}
+}
+
+.site-footer {
+   color: rgb(150, 150, 150);
+
+   p {
+		font-family: Lato;
+		@include font-size(17);
+
+    em {
+     color: rgb(190, 190, 190);
+      font-style: normal;
+    }      
+  }
+  
+  address {
+    font-style: normal;
+ 		font-weight: 300;
+		font-family: Merriweather;
+		@include font-size(13);
+		line-height: 1.375;
+  }
+}
+/* Layout */
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visually-hidden {
+	border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
+}
+
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+body {
+
+	&:before, &:after {
+		content: "";
+		width: 50%;
+		min-width: 410px;
+		position: absolute;
+		top: 0;
+		border-right: 57px solid white;
+		@include adapt-to(hands) {
+			width: 100%;
+			border-right: 0;
+		}
+	}
+
+	&:before {
+		padding-top: 700px;
+		height: 300px;
+		background-color: rgb(205, 201, 221);
+		z-index: -1;
+	}
+
+	&:after {
+		height: 1000px;
+		background-color: rgb(215, 211, 228);
+		z-index: -2;
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 980px;
+	margin: 0 auto;
+	min-width: 320px;
+	padding: 0 10px;
+}
+
+body > header {
+
+	position:relative;
+	z-index: 2;
+	padding-top: 36px;
+	@include pie-clearfix;
+
+	h1 {
+		float: left;
+		width: 58.33333%;
+		position: relative;
+		left: -40px;
+
+		@include adapt-to(portable) {
+			left: 0;
+		}
+
+		@include adapt-to(hands) {
+			float: none;
+			width: auto;
+			text-align: center;
+		}
+	}
+
+	p {
+		float: left;
+		width: 41.66666%;
+		margin-top: 105px;
+		text-align: right;
+		@include adapt-to(hands) {
+			float: none;
+			width: auto;
+			margin-top: 10px;
+			text-align: center;
+		}
+	}
+}
+
+.part01 {
+	margin-left: -10px;
+	@include pie-clearfix;
+
+	@include adapt-to(hands) {
+		margin-left: 0;
+	}
+
+	article {
+		float: left;
+
+		@include adapt-to(hands) {
+			float: none;
+		}
+	}
+}
+
+.box-model {
+	position: relative;
+	z-index: 3;
+	width: 41.66666%;
+	padding-left: 10px;
+
+	@include adapt-to(hands) {
+		width: auto;
+	}
+
+	h1 {
+		margin: 0 0 .25em;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	figure {
+		width: 200px;
+		position: relative;
+		margin: -20px auto 20px;
+
+		@include adapt-to(hands) {
+			margin-top: 40px;
+		}
+	}
+
+	img {
+		@include box-shadow(rgba(black, 0.25) 0px 8px 12px);
+	}
+
+	.lid {
+		position: absolute;
+		top: -20px;
+		left: -50px;
+		z-index: 0;
+	}
+
+	.base {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.position {
+	position: relative;
+	left: 22px;
+	width: 58.33333%;
+	padding-left: 38px;
+	margin-top: -295px;
+
+	@include adapt-to(portable) {
+		margin-top: -137px;
+		left: 0;
+	}
+
+	@include adapt-to(hands) {
+		width: auto;
+		padding-left: 0;
+		margin-top: 20px;
+	}
+
+	figure {
+		position: relative;
+		margin-left: -23%;
+		width: 152%;
+		@include transform(rotate(-3.84deg)); 
+
+		@include adapt-to(portable) {
+			margin-left: -10%;
+			width: 100%;
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			bottom: 10px;
+			width: 55%;
+			height: 12px;
+			@include transform(rotate(3.84deg)); 
+			@include border-radius(50%);
+			@include box-shadow(rgba(black, 0.85) -60px 30px 24px);
+		}
+
+		img {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			height: auto;
+			padding: 8px;
+			background-image: url("/images/positioning-bg.png");
+		}
+	}
+
+	header {
+		position: relative;
+		margin-top: -145px;
+		@include adapt-to(hands) {
+			max-width: 450px;
+		}
+	}
+}
+
+.part02 {
+	position: relative;
+	z-index: 2;	
+	margin-left: -20px;
+	@include pie-clearfix;
+
+	> article {
+		float: left;
+		padding-left: 20px;
+
+		@include adapt-to(hands) {
+			float: none;
+		}
+	}
+}
+
+.floats {
+	text-align: right;
+	width: 16.66666%;
+
+	@include adapt-to(hands) {
+		text-align: center;
+		width: auto;
+		margin-bottom: 20px;
+	}
+}
+
+.bullets {
+	width: 83.33333%;
+	@include pie-clearfix;
+
+	@include adapt-to(hands) {
+		width: auto
+	}
+
+	header {
+		margin-bottom: 18px;
+		border: solid rgb(229, 229, 229);
+		border-width: 1px 0;
+		padding: .75em 0;
+
+		+ article {
+			border-width: 0;
+
+			dl {
+				padding-left: 22px;
+			}
+			figure {
+				padding-left: 10px
+			}
+		}
+
+	}
+
+	article {
+		position: relative;
+		float: left;
+		width: 20%;
+		height: 420px;
+		border-left: 1px solid rgb(229, 229, 229);
+
+		@include adapt-to(hands) {
+			float: none;
+			width: auto;
+			height: auto;
+			clear: both;
+		}
+	}
+
+	figure {
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: 140px;
+		z-index: 2;
+
+		@include adapt-to(hands) {
+			float: right;
+			width: 70%;
+			position: static;
+			img {
+				@include transform(rotate(90deg)); 
+			}
+		}
+	}
+
+	dl {
+		width: 100%;
+		padding: 0 12px;
+		margin: 0;
+		position: absolute;
+		bottom: 30px;
+		z-index: 1;
+
+		@include adapt-to(hands) {
+			float: left;
+			position: static;
+			width: 30%;
+		}
+	}
+
+	dd {
+		margin: 0;
+	}
+}
+
+.part03 {
+	position: relative;
+	z-index: 1;
+	margin-top: -20px;
+
+	@include adapt-to(hands) {
+		margin-top: 20px;
+	}
+
+}
+
+.display {
+
+	header {
+		position: relative;
+		z-index: 2;
+		@include box-shadow(rgba(black, 0.25) 0 6px);
+	}
+
+	figure {
+		position: relative;
+		z-index: 1;
+	}
+
+	figcaption {
+		padding: 25px;
+	}
+
+	p {
+		margin: 0 0 1em 0;
+		letter-spacing: -0.025em;
+	}
+
+	.map {
+		position: relative;
+
+		> img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.map-container {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 13.54%;
+		height: 20.53%;
+		overflow: hidden;
+		transition: all 0.4s linear;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: url(/images/map-corner.png) no-repeat 0 0;
+			@include background-size(contain);
+			transition: all 0.4s linear .3s;
+		}
+
+		&:hover {
+			width: 100%;
+			height: 100%;
+			&:after {
+				height: 20%;
+				width: 20%;
+			}
+		}
+	}
+
+	iframe {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+}
+
+.part04 {
+	position: relative;
+	z-index: 2;	
+	margin-left: -20px;
+	@include pie-clearfix;
+
+	> article {
+		float: left;
+		padding-left: 20px;
+		@include adapt-to(hands) {
+			float: none;
+		}
+	}	
+}
+
+.borders {
+	width: 75%;
+	padding-right: 20px;
+
+	@include adapt-to(hands) {
+		width: auto;
+		padding-right: 0;
+	}
+
+	aside {
+		padding-right: 15px;
+
+		img {
+			position: relative;
+			width: 25%;
+			float: left;
+			@include transform(rotate(180deg)); 
+		}
+	}
+
+	header {
+		clear: both;
+
+		h1, p {
+			margin: 0 0 .175em;
+		}
+	}
+
+	dl {
+		margin: 10px 0 0;
+	}
+}
+
+.transforms {
+	width: 25%;
+	padding: 15px 0 0 15px;
+	position: relative;
+	max-width: 300px;
+
+	@include adapt-to(hands) {
+		width: auto;
+		margin: 80px auto 0;
+	}
+
+	&:after {
+		content: "";
+		width: 30px;
+		height: 30px;
+		bottom: -15px;
+		left: 47%;
+		position: absolute;
+		background-color: rgb(255, 255, 255);
+		border-radius: 50%;
+	}
+
+	figure, header, blockquote, aside {
+		background-color: rgb(58, 131, 187);
+	}
+
+	figure {
+		padding: 0 18px;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			bottom: 34px;
+			width: 90%;
+			height: 14px;
+			@include transform(rotate(-5deg)); 
+			@include border-radius(50%);
+			@include box-shadow(rgba(black, 0.85) -25px 30px 24px);
+		}
+	
+		img {
+			position: relative;
+			z-index: 2;
+			margin-top: -70px;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	header {
+		padding: 18px 15px 0;
+	}
+
+	h1 {
+		margin: 0;
+		padding-bottom: 15px;
+		border-bottom: 8px solid rgb(97, 156, 201);
+	}
+
+	blockquote {
+		margin: 0;
+
+		p {
+			margin: 0;
+		}
+
+		> p {
+			padding: 15px 15px 20px;
+			border-bottom: 2px dashed rgb(35, 79, 112);
+		}
+
+		footer {
+			padding: 5px 15px 25px;
+			border: solid rgb(52, 118, 168);
+			border-width: 5px 0;
+		}
+
+		cite {
+			float: left;
+			width: 95px;
+			padding: 10px 10px 0 0;
+		}
+
+		div {
+			height: 8px;
+			background-color: rgb(117, 168, 208);
+			span {
+				display: block;
+				height: 100%;
+				background-color: rgb(255, 255, 255);
+			}
+		}
+	}
+
+	aside {
+		padding: 20px 10px;
+		border-top: 2px dashed rgb(35, 79, 112);
+
+		h2 {
+			margin: 0;
+			background-color: rgb(117, 168, 208);
+	
+			span {
+				background-color: rgb(58, 131, 187);
+				display: inline-block;
+				padding: 0 5px;
+			}
+		}
+
+
+		ul {
+			@include no-bullets;
+			padding: 0;
+		}
+	}
+}
+
+.part05 {
+	margin-top: -30px;
+	z-index: 3;
+	position: relative;
+}
+
+.overflow {
+	background: url(/images/overflow-bg.png) no-repeat 50% 0;
+	padding-top: 42px;
+	margin-bottom: 40px;
+
+	@include adapt-to(portable) {
+		background-position: -52px 0;
+	}
+
+	header {
+		position: relative;
+		margin-bottom: 20px;
+
+		&:after {
+			content: url(/images/overflow-mask.png);
+			position: absolute;
+			bottom: 0px;
+			left: 26px;
+     	@include adapt-to(palm) {
+	  		content: "";
+		  }
+		}
+	}
+	
+	h1 {
+		display: inline-block;
+		margin: 0 0 0 41px;
+		@include transform(rotate(5.4deg)); 
+	}
+
+	p {
+		margin: 0;
+		&:nth-child(2) {
+			text-align: right;
+			margin-left: 26%;
+			@include transform(rotate(2.1deg)); 
+			margin-bottom: 15px;
+
+		}
+
+		&:nth-child(3) {
+			margin-right: 26%;
+			margin-bottom: 40px;
+			@include transform(rotate(-0.73deg)); 
+		}
+
+		&:nth-child(4) {
+			margin-left: 14%;
+			margin-right: 12%;
+			@include transform(rotate(0.94deg)); 
+		}
+	}
+}
+
+.site-footer {
+  border-top: 1px solid rgb(230, 230, 230);
+  @include pie-clearfix;
+  padding-top: 22px;
+  margin-bottom: 60px;
+
+  p {
+    float: left;
+    margin: 0;
+  }
+
+  address {
+    text-align: right;
+    float: right;
+  }
+}
