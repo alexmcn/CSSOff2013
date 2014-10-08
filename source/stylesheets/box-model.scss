@@ -1,0 +1,66 @@
+.box-model {
+
+  /* Typography */
+
+  text-align: center;
+
+  h1 {
+    font-weight: 700;
+    font-style: italic;
+    font-family: Lora;
+    @include font-size(36);
+    color: rgb(95, 93, 102);
+  }
+
+  p {
+    font-family: Lato;
+    @include font-size(19);
+    line-height: 1.4;
+    color: rgb(110, 108, 119);
+  }
+
+  /* layout */
+
+  position: relative;
+  z-index: 3;
+  width: 41.66666%;
+  padding-left: 10px;
+
+  @include adapt-to(hands) {
+    width: auto;
+  }
+
+  h1 {
+    margin: 0 0 .25em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  figure {
+    width: 200px;
+    position: relative;
+    margin: -20px auto 20px;
+
+    @include adapt-to(hands) {
+      margin-top: 40px;
+    }
+  }
+
+  img {
+    @include box-shadow(rgba(black, 0.25) 0px 8px 12px);
+  }
+
+  .lid {
+    position: absolute;
+    top: -20px;
+    left: -50px;
+    z-index: 0;
+  }
+
+  .base {
+    position: relative;
+    z-index: 1;
+  }
+}

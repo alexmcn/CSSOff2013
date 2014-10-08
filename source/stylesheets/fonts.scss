@@ -1,0 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400|Lora:400,400italic,700italic|Oswald|Merriweather:300,400,900);
+
+html {
+  font-size: 62.5%; 
+}
+
+@mixin font-size($sizeValue: 16) {
+  font-size: ($sizeValue) + px;
+  font-size: $sizeValue /10 + rem;
+}

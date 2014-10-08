@@ -1,0 +1,95 @@
+.position {
+
+  /* Typography */
+
+  header {
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-family: Oswald;
+    @include font-size(75);
+    line-height: 1;
+    color: rgb(253, 205, 132);
+    margin: .1em 0 0 0;
+    @include adapt-to(palm) {
+      @include font-size(50);
+      margin-bottom: 50px;
+    }
+
+  }
+
+  small {
+    font-family: Merriweather;
+    @include font-size(13);
+    color: rgb(203, 184, 160);
+    letter-spacing: .3em;
+  }
+
+  p {
+    font-weight: 300;
+    font-family: Merriweather;
+    @include font-size(25);
+  }
+
+  /* layout */
+
+  position: relative;
+  left: 22px;
+  width: 58.33333%;
+  padding-left: 38px;
+  margin-top: -295px;
+
+  @include adapt-to(portable) {
+    margin-top: -137px;
+    left: 0;
+  }
+
+  @include adapt-to(hands) {
+    width: auto;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  figure {
+    position: relative;
+    margin-left: -23%;
+    width: 152%;
+    @include transform(rotate(-3.84deg)); 
+
+    @include adapt-to(portable) {
+      margin-left: -10%;
+      width: 100%;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: 10px;
+      width: 55%;
+      height: 12px;
+      @include transform(rotate(3.84deg)); 
+      @include border-radius(50%);
+      @include box-shadow(rgba(black, 0.85) -60px 30px 24px);
+    }
+
+    img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      padding: 8px;
+      background-image: url("/images/positioning-bg.png");
+    }
+  }
+
+  header {
+    position: relative;
+    margin-top: -145px;
+    @include adapt-to(hands) {
+      max-width: 450px;
+    }
+  }
+}

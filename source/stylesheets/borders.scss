@@ -1,0 +1,77 @@
+.borders {
+
+  /* Typography */
+
+  h1 {
+    font-weight: 400;
+    font-family: Oswald;
+    @include font-size(82);
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    border-bottom: 20px solid rgb(0, 0, 0);
+  }
+  p {
+    font-weight: 400;
+    font-family: Oswald;
+    @include font-size(39);
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+  }
+  dl {
+    font-weight: 300;
+    font-family: Merriweather;
+    @include font-size(22);
+    line-height: 1.375;
+    letter-spacing: -0.5;
+  }
+  dt, dd {
+    display: inline;
+  }
+  dt {
+    font-weight: bold;
+    &:before {
+      content: "•";
+      padding: 0 10px 0 5px;
+    }
+    &:first-child:before {
+      content: "";
+      padding: 0;
+    }
+  }
+  dd {
+    margin-left: .5em;
+  }
+
+  /* layout */
+
+  width: 75%;
+  padding-right: 20px;
+
+  @include adapt-to(hands) {
+    width: auto;
+    padding-right: 0;
+  }
+
+  aside {
+    padding-right: 15px;
+
+    img {
+      position: relative;
+      width: 25%;
+      float: left;
+      @include transform(rotate(180deg)); 
+    }
+  }
+
+  header {
+    clear: both;
+
+    h1, p {
+      margin: 0 0 .175em;
+    }
+  }
+
+  dl {
+    margin: 10px 0 0;
+  }
+}

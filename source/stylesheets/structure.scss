@@ -1,0 +1,114 @@
+/* structure */
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visually-hidden {
+  border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
+}
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+body {
+
+  &:before, &:after {
+    content: "";
+    width: 50%;
+    min-width: 410px;
+    position: absolute;
+    top: 0;
+    border-right: 57px solid white;
+    @include adapt-to(hands) {
+      width: 100%;
+      border-right: 0;
+    }
+  }
+
+  &:before {
+    padding-top: 700px;
+    height: 300px;
+    background-color: rgb(205, 201, 221);
+    z-index: -1;
+  }
+
+  &:after {
+    height: 1000px;
+    background-color: rgb(215, 211, 228);
+    z-index: -2;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  min-width: 320px;
+  padding: 0 10px;
+}
+
+.part01 {
+  margin-left: -10px;
+  @include pie-clearfix;
+
+  @include adapt-to(hands) {
+    margin-left: 0;
+  }
+
+  article {
+    float: left;
+
+    @include adapt-to(hands) {
+      float: none;
+    }
+  }
+}
+
+.part02 {
+  position: relative;
+  z-index: 2; 
+  margin-left: -20px;
+  @include pie-clearfix;
+
+  > article {
+    float: left;
+    padding-left: 20px;
+
+    @include adapt-to(hands) {
+      float: none;
+    }
+  }
+}
+
+.part03 {
+  position: relative;
+  z-index: 1;
+  margin-top: -20px;
+
+  @include adapt-to(hands) {
+    margin-top: 20px;
+  }
+
+}
+
+.part04 {
+  position: relative;
+  z-index: 2; 
+  margin-left: -20px;
+  @include pie-clearfix;
+
+  > article {
+    float: left;
+    padding-left: 20px;
+    @include adapt-to(hands) {
+      float: none;
+    }
+  } 
+}
+
+.part05 {
+  margin-top: -30px;
+  z-index: 3;
+  position: relative;
+}
+
+

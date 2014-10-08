@@ -1,0 +1,41 @@
+.site-footer {
+
+  /* Typography */
+
+  color: rgb(150, 150, 150);
+
+  p {
+    font-family: Lato;
+    @include font-size(17);
+
+    em {
+     color: rgb(190, 190, 190);
+      font-style: normal;
+    }      
+  }
+  
+  address {
+    font-style: normal;
+    font-weight: 300;
+    font-family: Merriweather;
+    @include font-size(13);
+    line-height: 1.375;
+  }
+
+  /* layout */
+
+  border-top: 1px solid rgb(230, 230, 230);
+  @include pie-clearfix;
+  padding-top: 22px;
+  margin-bottom: 60px;
+
+  p {
+    float: left;
+    margin: 0;
+  }
+
+  address {
+    text-align: right;
+    float: right;
+  }
+}

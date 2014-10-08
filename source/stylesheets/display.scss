@@ -1,0 +1,105 @@
+.display {
+
+  /* Typography */
+
+  background-color: rgb(113, 98, 90);
+  color: rgb(255, 255, 255);
+  header {
+    background-color: rgb(82, 71, 65);
+    padding: 1.5em;
+  }
+  h1 {
+    font-weight: 400;
+    font-family: Oswald;
+    @include font-size(49);
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+  }
+  p {
+    font-weight: 300;
+    font-family: Merriweather;
+    @include font-size(26);
+  }
+  cite {
+    font-style: normal;
+  }
+  a {
+    font-weight: 300;
+    font-family: Merriweather;
+    @include font-size(18);
+    color: rgb(184, 177, 173);
+    text-decoration: none;
+    &:hover {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  /* layout */
+
+  header {
+    position: relative;
+    z-index: 2;
+    @include box-shadow(rgba(black, 0.25) 0 6px);
+  }
+
+  figure {
+    position: relative;
+    z-index: 1;
+  }
+
+  figcaption {
+    padding: 25px;
+  }
+
+  p {
+    margin: 0 0 1em 0;
+    letter-spacing: -0.025em;
+  }
+
+  .map {
+    position: relative;
+
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .map-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 13.54%;
+    height: 20.53%;
+    overflow: hidden;
+    transition: all 0.4s linear;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url(/images/map-corner.png) no-repeat 0 0;
+      @include background-size(contain);
+      transition: all 0.4s linear .3s;
+    }
+
+    &:hover {
+      width: 100%;
+      height: 100%;
+      &:after {
+        height: 20%;
+        width: 20%;
+      }
+    }
+  }
+
+  iframe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

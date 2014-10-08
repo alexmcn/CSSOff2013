@@ -1,0 +1,29 @@
+.floats {
+
+  /* Typography */
+
+  h1 {
+    font-family: Oswald;
+    @include font-size(21);
+    color: rgb(36, 121, 90);
+    margin: 0;
+  }
+  p {
+    font-family: Lato;
+    @include font-size(14);
+    line-height: 1.475;
+    color: rgb(70, 70, 70);
+    margin: 0 0 1em;
+  }
+
+  /* layout */
+
+  text-align: right;
+  width: 16.66666%;
+
+  @include adapt-to(hands) {
+    text-align: center;
+    width: auto;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,179 @@
+.transforms {
+
+  /* Typography */
+
+  header {
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    h1 {
+      font-weight: 400;
+      font-family: Oswald;
+      @include font-size(31);
+    }
+    p {
+      font-weight: 400;
+      font-family: Oswald;
+      @include font-size(21);
+    }
+  }
+  blockquote > p {
+    font-style: italic;
+    font-family: Lora;
+    @include font-size(16);
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+  }
+  footer > p {
+    font-weight: 400;
+    font-family: Oswald;
+    @include font-size(48);
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+  }
+  cite {
+    font-style: normal;
+    color: rgb(117, 168, 208);
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  aside {
+    font-weight: 400;
+    font-family: Oswald;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+    
+    h2 {
+      font-weight: 400;
+      @include font-size(14);
+      color: rgb(117, 168, 208);
+      background-color: rgb(117, 168, 208);
+      line-height: 1;
+    }
+    li:nth-child(2) {
+      color: rgb(117, 168, 208);
+    }
+  }
+
+  /* layout */
+
+  width: 25%;
+  padding: 15px 0 0 15px;
+  position: relative;
+  max-width: 300px;
+
+  @include adapt-to(hands) {
+    width: auto;
+    margin: 80px auto 0;
+  }
+
+  &:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    bottom: -15px;
+    left: 47%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+  }
+
+  figure, header, blockquote, aside {
+    background-color: rgb(58, 131, 187);
+  }
+
+  figure {
+    padding: 0 18px;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: 34px;
+      width: 90%;
+      height: 14px;
+      @include transform(rotate(-5deg)); 
+      @include border-radius(50%);
+      @include box-shadow(rgba(black, 0.85) -25px 30px 24px);
+    }
+  
+    img {
+      position: relative;
+      z-index: 2;
+      margin-top: -70px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  header {
+    padding: 18px 15px 0;
+  }
+
+  h1 {
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 8px solid rgb(97, 156, 201);
+  }
+
+  blockquote {
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
+
+    > p {
+      padding: 15px 15px 20px;
+      border-bottom: 2px dashed rgb(35, 79, 112);
+    }
+
+    footer {
+      padding: 5px 15px 25px;
+      border: solid rgb(52, 118, 168);
+      border-width: 5px 0;
+    }
+
+    cite {
+      float: left;
+      width: 95px;
+      padding: 10px 10px 0 0;
+    }
+
+    div {
+      height: 8px;
+      background-color: rgb(117, 168, 208);
+      span {
+        display: block;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+      }
+    }
+  }
+
+  aside {
+    padding: 20px 10px;
+    border-top: 2px dashed rgb(35, 79, 112);
+
+    h2 {
+      margin: 0;
+      background-color: rgb(117, 168, 208);
+  
+      span {
+        background-color: rgb(58, 131, 187);
+        display: inline-block;
+        padding: 0 5px;
+      }
+    }
+
+
+    ul {
+      @include no-bullets;
+      padding: 0;
+    }
+  }
+}
+

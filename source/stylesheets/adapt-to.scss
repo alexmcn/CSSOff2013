@@ -1,0 +1,17 @@
+@mixin adapt-to($human-factor) {
+  @if $human-factor == palm {
+    @media screen and (max-width: 480px) { @content; }
+  }
+  @if $human-factor == hands {
+    @media screen and (max-width: 768px) { @content; }
+  }
+  @if $human-factor == lap {
+    @media screen and (min-width: 481px) and (max-width: 1023px) { @content; }
+  }
+  @if $human-factor == portable {
+    @media screen and (max-width: 1023px) { @content; }
+  }
+  @if $human-factor == desk {
+    @media screen and (min-width: 1024px) { @content; }
+  }
+}
